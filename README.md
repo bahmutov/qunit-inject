@@ -26,8 +26,12 @@ QUnit.test('injected values', function (a, b) {
 
 ## Related
 
-[qunit-once](https://github.com/bahmutov/qunit-once),
-[qunit-promises](https://github.com/bahmutov/qunit-promises)
+Dependency injection implemented using [heroin](https://github.com/bahmutov/heroin)
+
+Other QUnit plugins I made:
+
+* [qunit-once](https://github.com/bahmutov/qunit-once)
+* [qunit-promises](https://github.com/bahmutov/qunit-promises)
 
 ## Small print
 
