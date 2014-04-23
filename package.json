@@ -7,7 +7,9 @@
     "url": "https://github.com/bahmutov/qunit-inject/issues"
   },
   "contributors": [],
-  "dependencies": {},
+  "dependencies": {
+    "heroin": "^0.2.1"
+  },
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-bump": "0.0.13",

@@ -22,13 +22,9 @@ module.exports = function (grunt) {
 
     'node-qunit': {
       all: {
-        deps: './qunit-once.js',
+        deps: './qunit-inject.js',
         code: './test/tests.js',
-        tests: [
-          './test/tests.js',
-          './test/test-one-module.js',
-          './test/test-two-modules.js'
-        ]
+        tests: ['./test/tests.js']
       }
     },
 
@@ -37,7 +33,7 @@ module.exports = function (grunt) {
         options: {
           grunt: true
         },
-        tasks: ['qunit', 'node-qunit']
+        tasks: [/*'qunit', */'node-qunit']
       }
     },
 
@@ -50,7 +46,7 @@ module.exports = function (grunt) {
         'README.md',
         'prismjs/prism.css',
         'prismjs/prism.js',
-        'qunit-once.js',
+        'qunit-inject.js',
         'test/*.js'
       ]
     }
