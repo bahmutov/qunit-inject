@@ -2,8 +2,6 @@
 
 QUnit plugin to add dependency injection from module to unit tests.
 
-[Test page](http://glebbahmutov.com/qunit-inject/)
-
 [![NPM][qunit-inject-icon]][qunit-inject-url]
 
 [![Build status][qunit-inject-ci-image]][qunit-inject-ci-url]
