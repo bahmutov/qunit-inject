@@ -40,8 +40,7 @@
   "license": "MIT",
   "main": "qunit-inject.js",
   "pre-commit": [
-    "grunt",
-    "npm run gt"
+    "grunt"
   ],
   "pre-push": [
     "rm -rf node_modules",
