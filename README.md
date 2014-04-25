@@ -24,6 +24,24 @@ QUnit.test('injected values', function (a, b) {
 });
 ```
 
+## Install
+
+Node:
+
+```
+npm install qunit-inject --save-dev
+// load qunit-inject before unit tests
+```
+
+Browser:
+
+```
+bower install qunit-inject
+// include the qunit js script first, then
+<script src="bower_components/qunit-inject/qunit-inject-browser.js"></script>
+// then include user tests
+```
+
 ## Related
 
 Dependency injection implemented using [heroin](https://github.com/bahmutov/heroin)

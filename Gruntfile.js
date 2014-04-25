@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         options: {
           grunt: true
         },
-        tasks: [/*'qunit', */'node-qunit']
+        tasks: ['qunit', 'node-qunit']
       }
     },
 
@@ -51,9 +51,7 @@ module.exports = function (grunt) {
       src: [
         'index.html',
         'README.md',
-        'prismjs/prism.css',
-        'prismjs/prism.js',
-        'qunit-inject.js',
+        'qunit-inject-browser.js',
         'test/*.js'
       ]
     }
