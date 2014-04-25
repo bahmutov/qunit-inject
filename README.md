@@ -53,6 +53,22 @@ Other QUnit plugins I made:
 * [qunit-once](https://github.com/bahmutov/qunit-once)
 * [qunit-promises](https://github.com/bahmutov/qunit-promises)
 
+## Limitation
+
+Because QUnit makes a clone of the module config object, the following example
+is not working yet:
+
+```js
+QUnit.module('inject with setup', {
+  a: 10,
+  setup: function () {
+    this.a = 42;
+  }
+});
+```
+
+Also, the injection is not minification safe, since minifier shortens the argument names.
+
 ## Small print
 
 Author: Gleb Bahmutov &copy; 2014 @bahmutov

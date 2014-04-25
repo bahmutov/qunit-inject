@@ -62,5 +62,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', ['parallel:test']);
   grunt.registerTask('default', ['deps-ok', 'nice-package', 'sync',
-    'jshint', 'complexity', 'test']);
+    'jshint', 'complexity', 'browserify', 'test']);
 };
