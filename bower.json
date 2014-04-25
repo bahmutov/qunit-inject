@@ -1,7 +1,7 @@
 {
   "name": "qunit-inject",
   "main": "qunit-inject-browser.js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "QUnit plugin for dependency injection into unit tests",
   "keywords": [
     "qunit",
@@ -16,13 +16,13 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "configs",
     "test",
+    "index.html",
     "tests",
     "Gruntfile.js",
     "qunit-inject.js",
-    "package.json",
-    "complexity.json",
-    "jshint.json"
+    "package.json"
   ],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>"
 }
