@@ -1,11 +1,12 @@
 {
   "name": "qunit-inject",
-  "main": "qunit-once.js",
+  "main": "qunit-inject-browser.js",
   "version": "0.1.1",
   "description": "QUnit plugin for dependency injection into unit tests",
   "keywords": [
     "qunit",
-    "promises",
+    "dependency",
+    "inject",
     "test",
     "assert"
   ],
@@ -18,6 +19,7 @@
     "test",
     "tests",
     "Gruntfile.js",
+    "qunit-inject.js",
     "package.json",
     "complexity.json",
     "jshint.json"

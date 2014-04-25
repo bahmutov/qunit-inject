@@ -16,6 +16,13 @@ module.exports = function (grunt) {
 
     complexity: grunt.file.readJSON('configs/complexity.json'),
 
+    browserify: {
+      all: {
+        src: 'qunit-inject.js',
+        dest: 'qunit-inject-browser.js'
+      }
+    },
+
     qunit: {
       all: ['index.html']
     },
