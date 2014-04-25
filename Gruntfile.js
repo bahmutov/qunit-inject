@@ -12,9 +12,9 @@ module.exports = function (grunt) {
       }
     },
 
-    jshint: grunt.file.readJSON('jshint.json'),
+    jshint: grunt.file.readJSON('configs/jshint.json'),
 
-    complexity: grunt.file.readJSON('complexity.json'),
+    complexity: grunt.file.readJSON('configs/complexity.json'),
 
     qunit: {
       all: ['index.html']
