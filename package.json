@@ -8,7 +8,8 @@
   },
   "contributors": [],
   "dependencies": {
-    "heroin": "^0.2.2"
+    "heroin": "^0.2.2",
+    "lodash.assign": "^2.4.1"
   },
   "devDependencies": {
     "browserify": "^3.44.2",

@@ -15,6 +15,7 @@
   if (typeof heroin !== 'function') {
     throw new Error('No heroin to inject');
   }
+  var assign = require('lodash.assign');
 
   var _module = QUnit.module;
   if (typeof _module !== 'function') {
@@ -32,8 +33,17 @@
     if (typeof config !== 'object') {
       return _module.call(QUnit, name, config);
     }
+    if (typeof config.setup === 'function') {
+      var _setup = config.setup;
+      config.setup = function () {
+        _setup.call(QUnit.config.current.testEnvironment, QUnit.assert);
+        // overwrite config with updated values
+        assign(configs[name], QUnit.config.current.testEnvironment);
+      };
+    }
     configs[name] = config;
     _module.call(QUnit, name, config);
+
     lastModuleName = name;
   };
 

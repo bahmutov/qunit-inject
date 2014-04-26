@@ -23,7 +23,16 @@ QUnit.module('inject with setup', {
   }
 });
 
-/*
 QUnit.test('injected from setup', function (a) {
   QUnit.equal(a, 42, 'value was changed by module setup');
-});*/
+});
+
+QUnit.module('create in setup', {
+  setup: function () {
+    this.a = 42;
+  }
+});
+
+QUnit.test('injected from setup', function (a) {
+  QUnit.equal(a, 42, 'value was changed by module setup');
+});

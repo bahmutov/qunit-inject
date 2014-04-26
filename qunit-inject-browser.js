@@ -4091,6 +4091,60 @@ module.exports=require(26)
 },{"lodash._isnative":73}],73:[function(require,module,exports){
 module.exports=require(9)
 },{}],74:[function(require,module,exports){
+module.exports=require(6)
+},{"lodash._basecreatecallback":75,"lodash._objecttypes":96,"lodash.keys":97}],75:[function(require,module,exports){
+module.exports=require(7)
+},{"lodash._setbinddata":76,"lodash.bind":79,"lodash.identity":93,"lodash.support":94}],76:[function(require,module,exports){
+module.exports=require(8)
+},{"lodash._isnative":77,"lodash.noop":78}],77:[function(require,module,exports){
+module.exports=require(9)
+},{}],78:[function(require,module,exports){
+module.exports=require(10)
+},{}],79:[function(require,module,exports){
+module.exports=require(11)
+},{"lodash._createwrapper":80,"lodash._slice":92}],80:[function(require,module,exports){
+module.exports=require(12)
+},{"lodash._basebind":81,"lodash._basecreatewrapper":86,"lodash._slice":92,"lodash.isfunction":91}],81:[function(require,module,exports){
+module.exports=require(13)
+},{"lodash._basecreate":82,"lodash._setbinddata":76,"lodash._slice":92,"lodash.isobject":85}],82:[function(require,module,exports){
+module.exports=require(14)
+},{"lodash._isnative":83,"lodash.isobject":85,"lodash.noop":84}],83:[function(require,module,exports){
+module.exports=require(9)
+},{}],84:[function(require,module,exports){
+module.exports=require(10)
+},{}],85:[function(require,module,exports){
+module.exports=require(17)
+},{"lodash._objecttypes":96}],86:[function(require,module,exports){
+module.exports=require(18)
+},{"lodash._basecreate":87,"lodash._setbinddata":76,"lodash._slice":92,"lodash.isobject":90}],87:[function(require,module,exports){
+module.exports=require(14)
+},{"lodash._isnative":88,"lodash.isobject":90,"lodash.noop":89}],88:[function(require,module,exports){
+module.exports=require(9)
+},{}],89:[function(require,module,exports){
+module.exports=require(10)
+},{}],90:[function(require,module,exports){
+module.exports=require(17)
+},{"lodash._objecttypes":96}],91:[function(require,module,exports){
+module.exports=require(23)
+},{}],92:[function(require,module,exports){
+module.exports=require(24)
+},{}],93:[function(require,module,exports){
+module.exports=require(25)
+},{}],94:[function(require,module,exports){
+module.exports=require(26)
+},{"lodash._isnative":95}],95:[function(require,module,exports){
+module.exports=require(9)
+},{}],96:[function(require,module,exports){
+module.exports=require(28)
+},{}],97:[function(require,module,exports){
+module.exports=require(29)
+},{"lodash._isnative":98,"lodash._shimkeys":99,"lodash.isobject":100}],98:[function(require,module,exports){
+module.exports=require(9)
+},{}],99:[function(require,module,exports){
+module.exports=require(31)
+},{"lodash._objecttypes":96}],100:[function(require,module,exports){
+module.exports=require(17)
+},{"lodash._objecttypes":96}],101:[function(require,module,exports){
 (function (global){
 /* jshint -W117:false */
 (function (QUnit, env) {
@@ -4109,6 +4163,7 @@ module.exports=require(9)
   if (typeof heroin !== 'function') {
     throw new Error('No heroin to inject');
   }
+  var assign = require('lodash.assign');
 
   var _module = QUnit.module;
   if (typeof _module !== 'function') {
@@ -4126,8 +4181,17 @@ module.exports=require(9)
     if (typeof config !== 'object') {
       return _module.call(QUnit, name, config);
     }
+    if (typeof config.setup === 'function') {
+      var _setup = config.setup;
+      config.setup = function () {
+        _setup.call(QUnit.config.current.testEnvironment, QUnit.assert);
+        // overwrite config with updated values
+        assign(configs[name], QUnit.config.current.testEnvironment);
+      };
+    }
     configs[name] = config;
     _module.call(QUnit, name, config);
+
     lastModuleName = name;
   };
 
@@ -4149,4 +4213,4 @@ module.exports=require(9)
 
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"heroin":4}]},{},[74])
+},{"heroin":4,"lodash.assign":74}]},{},[101])
