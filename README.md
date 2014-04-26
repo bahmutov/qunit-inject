@@ -26,6 +26,18 @@ QUnit.test('injected values', function (a, b) {
 });
 ```
 
+You can create / modify values to be injected in `setup` function
+
+```js
+QUnit.module('inject with setup', {
+  a: 10,
+  setup: function () {
+    this.a = 42;
+  }
+});
+// a = 42 in each unit test that needs it
+```
+
 ## Install
 
 Node:
@@ -55,19 +67,7 @@ Other QUnit plugins I made:
 
 ## Limitation
 
-Because QUnit makes a clone of the module config object, the following example
-is not working yet:
-
-```js
-QUnit.module('inject with setup', {
-  a: 10,
-  setup: function () {
-    this.a = 42;
-  }
-});
-```
-
-Also, the injection is not minification safe, since minifier shortens the argument names.
+The injection is not minification safe, since minifier shortens the argument names.
 
 ## Small print
 
