@@ -50,7 +50,7 @@ module.exports = function (grunt) {
       },
       all: {
         files: ['*.js', 'test/*.js', 'index.html'],
-        tasks: ['jshint', 'parallel']
+        tasks: ['jshint', 'browserify', 'parallel']
       }
     },
 
