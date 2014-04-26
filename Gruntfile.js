@@ -44,6 +44,16 @@ module.exports = function (grunt) {
       }
     },
 
+    watch: {
+      options: {
+        atBegin: true
+      },
+      all: {
+        files: ['*.js', 'test/*.js', 'index.html'],
+        tasks: ['jshint', 'parallel']
+      }
+    },
+
     'gh-pages': {
       options: {
         base: '.'
