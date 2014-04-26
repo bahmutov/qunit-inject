@@ -4127,6 +4127,7 @@ module.exports=require(22)
     if (typeof config !== 'object') {
       return _module.call(QUnit, name, config);
     }
+
     if (typeof config.setup === 'function') {
       var _setup = config.setup;
       config.setup = function () {
@@ -4135,6 +4136,16 @@ module.exports=require(22)
         assign(configs[name], QUnit.config.current.testEnvironment);
       };
     }
+
+    if (typeof config.teardown === 'function') {
+      var _teardown = config.teardown;
+      config.teardown = function () {
+        _teardown.call(QUnit.config.current.testEnvironment, QUnit.assert);
+        // overwrite config with updated values
+        assign(configs[name], QUnit.config.current.testEnvironment);
+      };
+    }
+
     configs[name] = config;
     _module.call(QUnit, name, config);
 

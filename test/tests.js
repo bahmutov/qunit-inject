@@ -57,3 +57,7 @@ QUnit.module('teardown', {
 QUnit.test('test 1', function (a) {
   QUnit.equal(a, 42);
 });
+
+QUnit.test('test 2', function (a) {
+  QUnit.equal(a, 42);
+});
