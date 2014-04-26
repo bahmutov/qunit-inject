@@ -1,7 +1,7 @@
 {
   "name": "qunit-inject",
   "description": "QUnit plugin for dependency injection into unit tests",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/qunit-inject/issues"
