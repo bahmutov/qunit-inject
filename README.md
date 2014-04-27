@@ -26,6 +26,18 @@ QUnit.test('injected values', function (a, b) {
 });
 ```
 
+You can create / modify values to be injected in `setup` function
+
+```js
+QUnit.module('inject with setup', {
+  a: 10,
+  setup: function () {
+    this.a = 42;
+  }
+});
+// a = 42 in each unit test that needs it
+```
+
 ## Install
 
 Node:
@@ -44,6 +56,22 @@ bower install qunit-inject
 // then include user tests
 ```
 
+## Partial injection
+
+*qunit-inject* correctly handles `assert` argument in each test using
+[partial injection](https://github.com/bahmutov/heroin#partial-dependency-injection).
+
+```js
+QUnit.module('QUnit.assert tests WITH injection', {
+  a: 42,
+  b: 1
+});
+QUnit.test('injection sandwich', function (b, assert, a) {
+  assert.equal(a, 42, 'assert works');
+  assert.equal(b, 1, 'b value');
+});
+```
+
 ## Related
 
 Dependency injection implemented using [heroin](https://github.com/bahmutov/heroin)
@@ -52,6 +80,10 @@ Other QUnit plugins I made:
 
 * [qunit-once](https://github.com/bahmutov/qunit-once)
 * [qunit-promises](https://github.com/bahmutov/qunit-promises)
+
+## Limitation
+
+The injection is not minification safe, since minifier shortens the argument names.
 
 ## Small print
 
