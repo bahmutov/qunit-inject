@@ -8,7 +8,7 @@
   },
   "contributors": [],
   "dependencies": {
-    "heroin": "^0.2.2",
+    "heroin": "^0.3.0",
     "lodash.assign": "^2.4.1"
   },
   "devDependencies": {
