@@ -61,3 +61,38 @@ QUnit.test('test 1', function (a) {
 QUnit.test('test 2', function (a) {
   QUnit.equal(a, 42);
 });
+
+// http://api.qunitjs.com/test/
+QUnit.module('QUnit.assert tests without injection');
+
+QUnit.test('no injection, just assert', function (assert) {
+  QUnit.equal(typeof assert, 'object', 'assert is an object');
+  QUnit.equal(typeof assert.ok, 'function', 'assert.ok is a function');
+});
+
+QUnit.module('QUnit.assert tests WITH injection', {
+  a: 42,
+  b: 1
+});
+
+QUnit.test('inject and assert', function (a, assert) {
+  QUnit.equal(typeof assert, 'object', 'assert is an object');
+  QUnit.equal(typeof assert.ok, 'function', 'assert.ok is a function');
+  QUnit.equal(a, 42, 'injected value');
+  assert.equal(a, 42, 'assert works');
+});
+
+QUnit.test('assert and inject', function (assert, a) {
+  QUnit.equal(typeof assert, 'object', 'assert is an object');
+  QUnit.equal(typeof assert.ok, 'function', 'assert.ok is a function');
+  QUnit.equal(a, 42, 'injected value');
+  assert.equal(a, 42, 'assert works');
+});
+
+QUnit.test('injection sandwich', function (b, assert, a) {
+  QUnit.equal(typeof assert, 'object', 'assert is an object');
+  QUnit.equal(typeof assert.ok, 'function', 'assert.ok is a function');
+  QUnit.equal(a, 42, 'injected value');
+  assert.equal(a, 42, 'assert works');
+  assert.equal(b, 1, 'b value');
+});

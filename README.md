@@ -56,6 +56,22 @@ bower install qunit-inject
 // then include user tests
 ```
 
+## Partial injection
+
+*qunit-inject* correctly handles `assert` argument in each test using
+[partial injection](https://github.com/bahmutov/heroin#partial-dependency-injection).
+
+```js
+QUnit.module('QUnit.assert tests WITH injection', {
+  a: 42,
+  b: 1
+});
+QUnit.test('injection sandwich', function (b, assert, a) {
+  assert.equal(a, 42, 'assert works');
+  assert.equal(b, 1, 'b value');
+});
+```
+
 ## Related
 
 Dependency injection implemented using [heroin](https://github.com/bahmutov/heroin)
