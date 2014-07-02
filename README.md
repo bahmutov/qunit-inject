@@ -80,6 +80,7 @@ Other QUnit plugins I made:
 
 * [qunit-once](https://github.com/bahmutov/qunit-once)
 * [qunit-promises](https://github.com/bahmutov/qunit-promises)
+* [qunit-helpful](https://github.com/bahmutov/qunit-helpful)
 
 ## Limitation
 
