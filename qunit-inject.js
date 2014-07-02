@@ -58,7 +58,11 @@
     lastModuleName = name;
   };
 
-  QUnit.test = function (name, fn) {
+  QUnit.test = function (name, n, fn) {
+    if (typeof n === 'function') {
+      fn = n;
+      n = null;
+    }
     if (typeof name === 'function') {
       fn = name;
       name = fn.name;
@@ -67,9 +71,9 @@
     if (lastModuleName && configs[lastModuleName]) {
       var dependencies = configs[lastModuleName];
       var injected = heroin(fn, dependencies);
-      _test.call(QUnit, name, injected);
+      _test.call(QUnit, name, n, injected);
     } else {
-      _test.call(QUnit, name, fn);
+      _test.call(QUnit, name, n, fn);
     }
   };
 }(QUnit, typeof global === 'object' ? global : window));

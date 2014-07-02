@@ -96,3 +96,13 @@ QUnit.test('injection sandwich', function (b, assert, a) {
   assert.equal(a, 42, 'assert works');
   assert.equal(b, 1, 'b value');
 });
+
+QUnit.module('unit tests with number of assertions');
+
+QUnit.test('just 0', 0, function () {
+  // nothing!
+});
+
+QUnit.test('single assertion', 1, function () {
+  QUnit.ok(true, 'everything is ok');
+});
